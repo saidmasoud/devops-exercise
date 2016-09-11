@@ -89,8 +89,12 @@ Returns: `201` and JSON as long as the service is up.
 
 ## Running
 
+This app runs on Python 3.5. Make sure you have Python and Virtual envionment tools.
+
 ```
 # Ensure you have set `MONGODB` in some manner (see above).
+virtualenv -p python3 env
+source env/bin/activate.sh
 pip install -r requirements.txt
 python api.py
 ```
