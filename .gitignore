@@ -1,0 +1,14 @@
+auth_service/bin/
+auth_service/lib/
+auth_service/include/
+auth_service/env/
+auth_service/.Python
+auth_service/pip-selfcheck.json
+auth_service/__pycache__
+data_service/bin/
+data_service/lib/
+data_service/include/
+data_service/env/
+data_service/.Python
+data_service/pip-selfcheck.json
+data_service/__pycache__
