@@ -3,7 +3,7 @@
 This service provides the ability to put and get `accounts` to the MongoDB database. It requires authentication
 `tokens` from the Auth Service.
 
-You must have a valid `token` and `user` in the Auth Service before using this service.
+You must have a valid `token` and `user` in the Auth Service before using this service. User creation outside the scope of this service. You must create users manually or through some other application.
 
 ## Dependencies
 This service requires a valid MongoDB connection string provided in an environment var:
