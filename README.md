@@ -7,7 +7,7 @@ The company you work for is building a micro-service based platform. They have c
 Your next task is to take the two recently built Python Flask APIs and meet the following requirements:
 
 - Read the documentation for the two Python APIs and test them to make sure they work as expected.
-- Once you understand their usage, use preferred tools and technology to create automation that stands up local dev environment of the stack, including its dependency (the mongodb database). _Don't worry too much about the nuances of data storage._
+- Once you understand their usage, use preferred tools and technology to create automation that stands up local dev environment of the stack, including its dependency (the mongodb database). _Don't worry too much about production data storage considerations; do whatever makes the most sense for dev, we may discuss prod with you later on._
 - You discuss with the engineers that in order for a micro-services architecture to work best, there will need to be some http routing in front of the services so that requests go to the right places. When the stack is deployed, accessing `/api/auth` should route to the *Auth Service* while `/api/data` should point to the *Data Service*. In other words, `/api/auth/token` should access the `/token` endpoint of the auth service, etc. Use technology and tools you know to implement this behavior.
 
 *Bonus (Optional)*
