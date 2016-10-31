@@ -17,7 +17,7 @@ Refer to the [MongoDB Documentation](https://docs.mongodb.com/manual/reference/c
 This service assumes usage of a top-level database called `auth` and two collections
 inside it called `users` and `tokens`. The databases and collections are accessed lazily.
 
-User creation outside the scope of this service. You must create users manually or through some other application.
+User creation outside the scope of this service. You must create users via code or a MongoDB Desktop Client.
 
 #### users
 
