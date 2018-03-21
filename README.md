@@ -26,9 +26,9 @@ Installation is composed of three steps:
 
 When I read the problem description, I immediately know Docker+Docker Compose was going to be my solution based on my previous experience. So I first started by creating (or pulling) each individual Docker image to make sure they would properly build and run. Then I worked on creating the docker-compose.yml file to efficiently manage the entire environment.
 
-I had some trouble with NGINX, specifically setting up the `/api/auth` and `/api/data` routes. There were two issues: 1. I had to define the Compose DNS service using the `resolver` directive, and 2. I had to add a "dummy" definition for the root route (`/`) to get the other ones to work. Once I resolved this issue, everything was working as expected.
+I had some trouble with NGINX, specifically setting up the `/api/auth` and `/api/data` routes. There were two issues: 1. I had to define the Compose DNS service using the `resolver` directive, and 2. I had to add a "dummy" definition for the root route (`/`) to get the other ones to work. Once I resolved this issue, everything was working as expected. For more details, view the comments within the `nginx/nginx.conf` file.
 
-For the "efficient Docker image" task, I designed the API Dockerfiles to first pull in the requirements.txt and run 'pip install'. That way, if a developer wanted to play around with their source code, they would not have to run 'pip install' every time they revuilt their Docker image after a code update. This is starting to become standard practice across the Docker community, as this strategy takes advantage of the Docker caching feature which caches each step of the build.
+For the "efficient Docker image" task, I designed the API Dockerfiles to first pull in the requirements.txt and run 'pip install'. That way, if a developer wanted to play around with their source code, they would not have to run 'pip install' every time they rebuilt their Docker image after a code update. This is starting to become standard practice across the Docker community, as this strategy takes advantage of the Docker caching feature which caches each step of the build.
 
 ## Original Exercise: Dev Environment
 
