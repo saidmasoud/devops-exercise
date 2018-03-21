@@ -1,0 +1,55 @@
+version: "3"
+networks:
+  app_net:
+    driver: bridge
+    #enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: ${SUBNET}
+services:
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 80:80
+    links:
+      - data_service
+      - auth_service
+    container_name: nginx
+    #volumes:
+    #  - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      app_net:
+        ipv4_address: ${NGINX_IP}
+  data_service:
+    build:
+      context: ./data_service
+    ports:
+      - 4000:5000
+    environment:
+      - MONGODB=mongodb://${MONGO_IP}:27017
+    container_name: data_service
+    networks:
+      app_net:
+        ipv4_address: ${DATA_IP}
+  auth_service:
+    build:
+      context: ./auth_service
+    ports:
+      - 5000:5000
+    environment:
+      - MONGODB=mongodb://${MONGO_IP}:27017
+    container_name: auth_service
+    networks:
+      app_net:
+        ipv4_address: ${AUTH_IP}
+  mongo:
+    image: mongo:latest
+    ports: 
+      - 27017:27017
+    container_name: mongo
+    networks:
+      app_net:
+        ipv4_address: ${MONGO_IP}
